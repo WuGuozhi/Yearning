@@ -59,7 +59,7 @@ func StartYearning(port string, host string) {
 	_ = json.Unmarshal(model.GloPer.Other, &model.GloOther)
 	_ = json.Unmarshal(model.GloPer.AuditRole, &model.GloRole)
 	e := yee.New()
-	e.Pack("/front", f, "dist")
+	e.Pack("/myggg/front", f, "dist")
 	e.Use(middleware.Cors())
 	e.Use(middleware.Logger())
 	e.Use(middleware.Secure())
@@ -68,7 +68,7 @@ func StartYearning(port string, host string) {
 		Level: 9,
 	}))
 	e.SetLogLevel(2)
-	e.GET("/", func(c yee.Context) error {
+	e.GET("/myggg", func(c yee.Context) error {
 		return c.HTML(http.StatusOK, html)
 	})
 	router.AddRouter(e)
